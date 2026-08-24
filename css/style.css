@@ -574,9 +574,17 @@ section {
     align-items: center;
 }
 
+.hero-single .hero-container,
 .hero-container.hero-single {
     grid-template-columns: minmax(0, 780px);
     justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+.hero-single .hero-content {
+    width: 100%;
+    justify-self: center;
     text-align: center;
 }
 
