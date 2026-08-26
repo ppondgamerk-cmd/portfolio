@@ -2172,6 +2172,93 @@ section {
     transform: scale(1);
 }
 
+.resume-modal-card {
+    max-width: 460px;
+    padding: 38px 30px 30px;
+}
+
+.resume-modal-icon {
+    display: grid;
+    width: 54px;
+    height: 54px;
+    margin-bottom: 18px;
+    place-items: center;
+    color: #b59aff;
+    background: rgba(139, 92, 246, 0.14);
+    border: 1px solid rgba(139, 92, 246, 0.24);
+    border-radius: 16px;
+}
+
+.resume-modal-card h3 {
+    color: var(--text-white);
+    font-size: 1.5rem;
+}
+
+.resume-modal-description {
+    margin-top: 6px;
+    color: var(--text-secondary);
+}
+
+.resume-download-options {
+    display: grid;
+    gap: 12px;
+    margin-top: 26px;
+}
+
+.resume-download-option {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 15px;
+    color: inherit;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(139, 92, 246, 0.16);
+    border-radius: 15px;
+    text-decoration: none;
+    transition: var(--transition-smooth);
+}
+
+.resume-download-option:hover {
+    transform: translateY(-2px);
+    background: rgba(139, 92, 246, 0.1);
+    border-color: rgba(139, 92, 246, 0.48);
+}
+
+.resume-language-icon {
+    display: grid;
+    width: 43px;
+    height: 43px;
+    flex-shrink: 0;
+    place-items: center;
+    color: #c7b8ff;
+    background: rgba(139, 92, 246, 0.15);
+    border-radius: 12px;
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.resume-language-details {
+    display: grid;
+    flex: 1;
+    gap: 3px;
+}
+
+.resume-language-details strong {
+    color: var(--text-white);
+    font-size: 0.94rem;
+}
+
+.resume-language-details > span {
+    color: var(--text-secondary);
+    font-size: 0.78rem;
+}
+
+.resume-option-download {
+    width: 19px;
+    height: 19px;
+    color: #a78bfa;
+}
+
 .modal-close {
     position: absolute;
     top: 20px;

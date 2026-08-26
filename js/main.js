@@ -4,11 +4,41 @@ document.addEventListener('DOMContentLoaded', () => {
        THAI / ENGLISH LANGUAGE SWITCHER
        ====================================================================== */
     const languageToggle = document.getElementById('language-toggle');
+    const resumeModal = document.createElement('div');
+    resumeModal.className = 'modal-overlay resume-modal-overlay';
+    resumeModal.id = 'modal-resume';
+    resumeModal.setAttribute('role', 'dialog');
+    resumeModal.setAttribute('aria-modal', 'true');
+    resumeModal.setAttribute('aria-labelledby', 'resume-modal-title');
+    resumeModal.innerHTML = `
+        <div class="modal-card resume-modal-card">
+            <button type="button" class="modal-close" aria-label="Close">&times;</button>
+            <div class="resume-modal-icon"><i data-lucide="file-down"></i></div>
+            <h3 id="resume-modal-title">Download Resume</h3>
+            <p class="resume-modal-description">Choose your preferred language</p>
+            <div class="resume-download-options">
+                <a href="assets/resume.pdf" download="resume.pdf" class="resume-download-option">
+                    <span class="resume-language-icon">EN</span>
+                    <span class="resume-language-details"><strong>English Resume</strong><span>Download English version</span></span>
+                    <i data-lucide="download" class="resume-option-download"></i>
+                </a>
+                <a href="assets/resume-th.pdf" download="resume.pdf" class="resume-download-option">
+                    <span class="resume-language-icon">TH</span>
+                    <span class="resume-language-details"><strong>Thai Resume</strong><span>Download Thai version</span></span>
+                    <i data-lucide="download" class="resume-option-download"></i>
+                </a>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(resumeModal);
     const thaiTranslations = {
         'WELCOME PORTFOLIO': 'ยินดีต้อนรับสู่พอร์ตโฟลิโอ',
         'Home': 'หน้าแรก', 'About Me': 'เกี่ยวกับฉัน', 'Education': 'การศึกษา',
         'Skills': 'ทักษะ', 'Projects': 'ผลงาน', 'Contact': 'ติดต่อ',
         'Download Resume': 'ดาวน์โหลดเรซูเม่', 'Available for Internship': 'พร้อมสำหรับการฝึกงาน',
+        'Choose your preferred language': 'เลือกภาษาเรซูเม่ที่ต้องการดาวน์โหลด',
+        'English Resume': 'เรซูเม่ภาษาอังกฤษ', 'Download English version': 'ดาวน์โหลดฉบับภาษาอังกฤษ',
+        'Thai Resume': 'เรซูเม่ภาษาไทย', 'Download Thai version': 'ดาวน์โหลดฉบับภาษาไทย',
         'Welcome': 'ยินดีต้อนรับสู่', 'Portfolio': 'พอร์ตโฟลิโอ',
         'Computer Science Student': 'นักศึกษาวิทยาการคอมพิวเตอร์',
         'Seeking an': 'กำลังมองหา', 'IT Support Internship': 'ตำแหน่งฝึกงาน IT Support',
@@ -139,6 +169,19 @@ document.addEventListener('DOMContentLoaded', () => {
     languageToggle?.addEventListener('click', () => {
         currentLanguage = currentLanguage === 'en' ? 'th' : 'en';
         applyLanguage(currentLanguage);
+    });
+    document.querySelectorAll('a[href="assets/resume.pdf"]:not(.resume-download-option)').forEach(link => {
+        link.addEventListener('click', event => {
+            event.preventDefault();
+            resumeModal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+    resumeModal.querySelectorAll('.resume-download-option').forEach(option => {
+        option.addEventListener('click', () => {
+            resumeModal.classList.remove('open');
+            document.body.style.overflow = '';
+        });
     });
     const localizedText = (english, thai) => document.documentElement.lang === 'th' ? thai : english;
 
