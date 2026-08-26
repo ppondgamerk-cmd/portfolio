@@ -171,12 +171,20 @@ document.addEventListener('DOMContentLoaded', () => {
         applyLanguage(currentLanguage);
     });
     document.querySelectorAll('a[href="assets/resume.pdf"]:not(.resume-download-option)').forEach(link => {
-        link.addEventListener('click', event => {
-            event.preventDefault();
+        link.classList.add('resume-picker-trigger');
+        link.href = '#resume-options';
+        link.removeAttribute('download');
+    });
+    document.addEventListener('click', event => {
+        const resumeTrigger = event.target.closest('.resume-picker-trigger');
+        if (!resumeTrigger) return;
+        event.preventDefault();
+        event.stopPropagation();
+        window.setTimeout(() => {
             resumeModal.classList.add('open');
             document.body.style.overflow = 'hidden';
-        });
-    });
+        }, 0);
+    }, true);
     resumeModal.querySelectorAll('.resume-download-option').forEach(option => {
         option.addEventListener('click', () => {
             resumeModal.classList.remove('open');
