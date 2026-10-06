@@ -17,12 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
             <h3 id="resume-modal-title">Download Resume</h3>
             <p class="resume-modal-description">Choose your preferred language</p>
             <div class="resume-download-options">
-                <a href="assets/resume.pdf" download="resume.pdf" class="resume-download-option">
+                <a href="assets/resume.pdf?v=20261006" download="resume.pdf" class="resume-download-option">
                     <span class="resume-language-icon">EN</span>
                     <span class="resume-language-details"><strong>English Resume</strong><span>Download English version</span></span>
                     <i data-lucide="download" class="resume-option-download"></i>
                 </a>
-                <a href="assets/resume-th.pdf" download="resume.pdf" class="resume-download-option">
+                <a href="assets/resume-th.pdf?v=20261006" download="resume.pdf" class="resume-download-option">
                     <span class="resume-language-icon">TH</span>
                     <span class="resume-language-details"><strong>Thai Resume</strong><span>Download Thai version</span></span>
                     <i data-lucide="download" class="resume-option-download"></i>
